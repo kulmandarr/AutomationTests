@@ -38,6 +38,7 @@ jobs:
           path: node_modules/
 
   test:
+    needs: build
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:focal
