@@ -1,0 +1,15 @@
+{
+  "name": "test-automation",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "playwright:test": "npx playwright test"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "cypress": "^13.6.4",
+    "playwright": "^1.41",
+    "@playwright/test": "^1.41"
+  }
+}
