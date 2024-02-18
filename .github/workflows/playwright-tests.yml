@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,11 +30,26 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      
+      # task to upload the build artifacts
+      - name: Archive Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: node_modules/
+
   test:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:focal
     steps:
+      - name: Check-out repository
+        uses: actions/checkout@v3
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifacts@v3
+        with:
+          name: build-artifacts
+          path: node_modules/
+
       - name: Run playwright tests
         run: npm run playwright:test
