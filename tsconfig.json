@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ES2016",
+    "types": ["cypress", "node"]
+  },
+  "include": [
+    "acceptance-tests/playwright/**/*.ts",
+    "acceptance-tests/cypress/**/*.ts"
+  ]
+}

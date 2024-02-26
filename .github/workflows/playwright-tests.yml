@@ -53,4 +53,6 @@ jobs:
           path: node_modules/
 
       - name: Run playwright tests
-        run: npm run playwright:test
+        run:
+          bash 
+          npm run playwright:test:chromium

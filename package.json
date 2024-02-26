@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "playwright:test": "npx playwright test"
+    "playwright:test:chromium": "npx playwright test --project=chromium",
+    "playwright:test": "npx playwright test",
+    "cypress:test": "npx cypress run"
   },
   "devDependencies": {
+    "mocha-junit-reporter":"2.2.1",
     "typescript": "^5.3.3",
     "cypress": "^13.6.4",
     "playwright": "^1.41",
